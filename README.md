@@ -9,7 +9,7 @@ clone这套代码，实现自己的listener, 所有Listener 在com.qx.wechat.lis
 例如：当有人给你发私信的时候，你可以修改com.qx.wechat.listener.PrivateMsgListener 去做你想要的功能，比如直接回复他：
 WeXinApi.sendTextMsg(msg.getRobotWxid(), msg.getFromWxid(), "我已经收到你的消息:"+msg.getMsg()+"洗洗睡吧。。。");
 
-# WeChatService有哪些依赖？
+## WeChatService有哪些依赖？
 WeChatService依赖[可爱猫官网](http://www.keaimao.com/) 
 
 ## Wechat有哪些功能？
