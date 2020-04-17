@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
 import com.qx.wechat.comm.sdk.WeXinApi;
-import com.qx.wechat.event.GroupMsgEvent;
+import com.qx.wechat.event.PrivateMsgEvent;
 import com.qx.wechat.model.Msg;
 
 /**
@@ -18,10 +18,10 @@ import com.qx.wechat.model.Msg;
  *
  */
 @Component
-public class PrivateMsgListener implements ApplicationListener<GroupMsgEvent>{
+public class PrivateMsgListener implements ApplicationListener<PrivateMsgEvent>{
 
 	@Override
-	public void onApplicationEvent(GroupMsgEvent event) {
+	public void onApplicationEvent(PrivateMsgEvent event) {
 		Msg msg = (Msg)event.getSource();
 		WeXinApi.sendTextMsg(msg.getRobotWxid(), msg.getFromWxid(), "我已经收到你的消息:"+msg.getMsg()+"洗洗睡吧。。。");
 
