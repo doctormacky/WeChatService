@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class WechatServiceApplication {
 
 	public static void main(String[] args) {
-		//System.setProperty("api.url.host", "http://localhost:8073");
+		System.setProperty("api.url.host", "http://qxwx.ngrok2.xiaomiqiu.cn");
 		SpringApplication.run(WechatServiceApplication.class, args);
 	}
 

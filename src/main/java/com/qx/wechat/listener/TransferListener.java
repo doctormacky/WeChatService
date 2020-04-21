@@ -26,10 +26,14 @@ public class TransferListener implements ApplicationListener<TransferEvent>{
 	public void onApplicationEvent(TransferEvent event) {
 		Msg msg = (Msg)event.getSource();
 		System.out.println(msg.getMsg());
+		TransferData td = JSON.parseObject(msg.getMsg(), TransferData.class);
 		WeXinApi.acceptTransfer(
 				msg.getRobotWxid(), 
 				msg.getFromWxid(), 
-				JSON.parseObject(msg.getMsg(), TransferData.class));
+				td);
+		
+		WeXinApi.sendTextMsg(msg.getRobotWxid(), msg.getFromWxid(),
+				"哥收到你的转账金额："+td.getMoney()+", remark:"+td.getRemark() +",洗洗睡吧。");
 	}
 
 }
